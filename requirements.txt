@@ -1,0 +1,4 @@
+django
+ipython
+numpy
+pudb
