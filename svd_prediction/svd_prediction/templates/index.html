@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Movie Rating Predictor</title>
+    {% load staticfiles %}
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap-3.1.1.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/source-sans-pro.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Movie Rating Predictor</h1>
+            <h3>Get predictions for the ratings you'll give to awesome movies.</h3>
+            <br>
+            <form action="/result/" method="post">
+               <fieldset>
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="steam_name">User ID:</label>
+                    <div class="controls">
+                        {{form.as_p}}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <br/>
+                        <input type="submit" class="btn btn-lg btn-primary" value="Recommend!"/>
+                    </div>
+                </div>
+
+                </fieldset>
+            </form>
+
+            
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Use Steam Game Recommender for your next Steam game purchase!</h2>
+                    <p class="lead">Steam Game Recommender is a recommender system for games in the Steam platform.</p>
+                    <p class="lead">Just enter the steam id or the steam name of the person you wish to buy a game for
+                    and let us do all the work. We also take into account the games your friends play when recommending games.</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+
+    <!-- Bootstrap Core Java -->
+    <script src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+
+</body>
+
+</html>

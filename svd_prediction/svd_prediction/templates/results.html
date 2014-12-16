@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Steam Game Recommender</title>
+
+    {% load staticfiles %}
+
+    <link href="{% static 'css/bootstrap-3.1.1.min.css' %}" rel="stylesheet">
+
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3 class="text-center">
+                Steam User: {{steam_name}}
+            </h3>
+
+            <div class="list-group">
+                <a class="list-group-item active"><span class="badge">{{predictions|length}}</span>Predictions: </a>
+                
+                {% for prediction in predictions %}
+                    <div class="list-group-item">
+                        <span class="badge">{{prediction.score}}</span>
+                        <h4 class="list-group-item-heading">
+                            {{prediction.movie_name}}
+                        </h4>
+                    </div>                  
+                {% empty %}
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading">
+                            You have seen and rated all movies in our database. Well done!
+                        </h4>
+                        <p class="list-group-item-text">
+                            Try again in a shortly as we are continuously updating our database :)
+                        </p>
+                    </div>
+                {% endfor %}
+
+            </div>
+            
+            <!-- <div class="list-group">
+                <a class="list-group-item active"><span class="badge">{{friends_games|length}}</span>Friends Recommendations: </a>
+                {% for game in friends_games %}
+                    <div class="list-group-item">
+                        <span class="badge">{{game.score|floatformat}}</span>
+                        <h4 class="list-group-item-heading">
+                            {{game.name}}
+                        </h4>
+                        <p class="list-group-item-text">
+                            <a href="{{game.url}}" target="_blank">Visit Steam Page</a>
+                        </p>
+                    </div>
+                {% empty %}
+                    
+                {% endfor %}                
+            </div>
+
+            <div class="list-group">
+                <a class="list-group-item active"><span class="badge">{{wishlist_games|length}}</span>User's Wishlist: </a>
+                
+                {% for game in wishlist_games %}
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        {{game.game_name}}
+                    </h4>
+                    <p class="list-group-item-text">
+                        <a href="{{game.game_url}}" target="_blank">Visit Steam Page</a>
+                    </p>
+                </div>
+                
+                {% empty %}
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading">
+                            Recommendation Failed :(
+                        </h4>
+                        <p class="list-group-item-text">
+                            This user's wishlist is empty :(
+                        </p>
+                        
+                    </div>
+                {% endfor %}
+            </div> -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
